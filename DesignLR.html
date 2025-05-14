@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GlassWorker Art</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* General Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      background-color: #fffaf5; /* Light creamy background */
+      color: #222; /* Dark text color for readability */
+    }
+
+    /* Header Styles */
+    header {
+      background: #1e1e1e; /* Dark background for header */
+      color: #f4f4f4; /* Light text color for header */
+      padding: 1.5rem;
+      animation: slideDown 1s ease-in-out;
+      font-family: 'Georgia', serif; /* Elegant serif font for header */
+    }
+
+    /* Navigation Styles */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap; /* Allow nav items to wrap on smaller screens */
+    }
+
+    nav h1 {
+        font-size: 1.8rem; /* Larger font size for gallery title */
+        font-weight: bold;
+    }
+
+    nav a {
+      color: #f4f4f4;
+      text-decoration: none;
+      margin: 0 1rem;
+      transition: color 0.3s ease;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #ffaa00; /* Accent color for hover */
+    }
+
+    /* Main Content Section Styles */
+    main section {
+      padding: 2rem;
+    }
+
+    h2 {
+      font-family: 'Georgia', serif;
+      color: #2b2b2b; /* Slightly lighter dark color for headings */
+      margin-bottom: 1rem;
+      font-size: 1.75rem;
+    }
+
+    /* Container for Art Pieces */
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px; /* Space between art pieces */
+      padding: 20px;
+      justify-content: center; /* Center art pieces in the container */
+      animation: fadeIn 1.5s ease-in;
+    }
+
+    /* Individual Art Piece Styling */
+    .art-piece {
+      background: #ffffff; /* White background for art pieces */
+      padding: 15px; /* Increased padding */
+      border: 1px solid #e0e0e0; /* Softer border color */
+      flex: 1 1 300px; /* Flex properties for responsive layout */
+      max-width: 320px; /* Slightly increased max-width */
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1); /* Enhanced shadow for depth */
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      border-radius: 8px; /* Rounded corners */
+    }
+
+    .art-piece:hover {
+      transform: translateY(-5px) scale(1.03); /* More subtle hover effect */
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+
+    .art-piece img {
+      width: 100%;
+      height: 200px; /* Fixed height for images */
+      object-fit: cover; /* Ensure images cover the area well */
+      border-radius: 4px; /* Rounded corners for images */
+      border-bottom: 3px solid #ffaa00; /* Accent border for images */
+    }
+
+    .art-piece p.title { /* Specific class for title */
+      margin-top: 1rem;
+      font-weight: bold;
+      color: #333;
+      font-size: 1.1rem;
+    }
+
+    .artist-info {
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 0.5rem;
+      min-height: 60px; /* Ensure consistent height for description */
+    }
+
+    /* Footer Styles */
+    footer {
+      background: #1e1e1e;
+      color: white;
+      text-align: center;
+      padding: 1.5rem; /* Increased padding */
+      margin-top: 2rem;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+        color: #ffaa00;
+        text-decoration: none;
+    }
+    footer a:hover {
+        text-decoration: underline;
+    }
+
+    /* List Styles for Contact Section */
+    ul {
+        list-style-type: none; /* Remove default list bullets */
+        padding-left: 0;
+    }
+    ul li {
+      margin: 0.5rem 0;
+      font-size: 1rem;
+    }
+
+    /* Responsive Design - Media Queries */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: center; /* Center nav items on small screens */
+      }
+      nav h1 {
+        margin-bottom: 1rem;
+      }
+      nav div a {
+        display: block; /* Stack nav links */
+        margin: 0.5rem 0;
+        text-align: center;
+      }
+      .container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .art-piece {
+        max-width: 90%; /* Allow art pieces to take more width */
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .art-piece {
+        flex-basis: 45%; /* Two items per row on tablets */
+        max-width: 45%;
+      }
+    }
+
+    /* Keyframe Animations */
+    @keyframes slideDown {
+      from { transform: translateY(-100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body class="bg-gray-100"> <header>
+    <nav>
+      <h1>GlassWorker Art</h1>
+      <div>
+        <a href="#home">Home</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="text-center md:text-left"> <h2>Welcome to the GlassWorker Art Gallery</h2>
+      <p class="max-w-3xl mx-auto md:mx-0"> Explore our curated collection of contemporary, abstract, and classical art from artists around the world. Our gallery brings creativity to life in a vibrant, responsive layout inspired by <b>African Artistry, Passion, Diversity, Craftmanship, Heritage and its Rich Tradition & History.</b>
+      </p>
+    </section>
+
+    <section id="gallery" class="container">
+      <div class="art-piece">
+        <img
+            src="https://placehold.co/300x200/A67B5B/FFFFFF?text=Zulu+Beadwork%0A(Vibrant+Colors)"
+            alt="Hand-beaded Zulu necklace with vibrant colors and patterns"
+            onerror="this.onerror=null;this.src='https://placehold.co/300x200/cccccc/ffffff?text=Zulu+Beadwork';"
+        />
+        <p class="title">Zulu Beadwork Necklace</p>
+        <div class="artist-info">A hand-beaded piece reflecting the symbolic language and social identity of the Zulu tribe in South Africa.</div>
+      </div>
+      <div class="art-piece">
+        <img
+            src="https://placehold.co/300x200/C8A2C8/000000?text=Ethnic+Textile%0A(W.African+Motifs)"
+            alt="Colorful ethnic textile wall hanging inspired by West African motifs"
+            onerror="this.onerror=null;this.src='https://placehold.co/300x200/cccccc/ffffff?text=Ethnic+Wall+Hanging';"
+        />
+        <p class="title">Ethnic Wall Hanging</p>
+        <div class="artist-info">This textile wall art blends traditional West African patterns with modern minimalist styles.</div>
+      </div>
+      <div class="art-piece">
+        <img
+            src="https://placehold.co/300x200/D2B48C/3B2F2F?text=Woven+Basket%0A(East+Africa)"
+            alt="Hand-woven basket using natural fibers from East Africa"
+            onerror="this.onerror=null;this.src='https://placehold.co/300x200/cccccc/ffffff?text=Traditional+Basket';"
+        />
+        <p class="title">Traditional Basket Weaving</p>
+        <div class="artist-info">Handcrafted by East African artisans, these baskets combine function with cultural heritage.</div>
+      </div>
+      <div class="art-piece">
+        <img
+            src="https://placehold.co/300x200/B87333/FFFFFF?text=Benin+Sculpture%0A(Bronze)"
+            alt="Bronze sculpture from the Benin Kingdom representing royal lineage"
+            onerror="this.onerror=null;this.src='https://placehold.co/300x200/cccccc/ffffff?text=Benin+Sculpture';"
+        />
+        <p class="title">Benin Bronze Sculpture</p>
+        <div class="artist-info">A historic representation from the Benin Kingdom, reflecting royal lineage and divine symbolism.</div>
+      </div>
+      <div class="art-piece">
+        <img
+            src="https://placehold.co/300x200/5D3A1A/FFFFFF?text=Malian+Mud+Cloth%0A(Geometric)"
+            alt="Traditional Malian mud cloth with hand-painted geometric symbols"
+            onerror="this.onerror=null;this.src='https://placehold.co/300x200/cccccc/ffffff?text=Malian+Mud+Cloth';"
+        />
+        <p class="title">Malian Mud Cloth Fabric</p>
+        <div class="artist-info">Bogolanfini from Mali, dyed with fermented mud, carries deep ancestral and spiritual meanings.</div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <p>If you’d like to get in touch, collaborate, or feature your art, please contact us at:</p>
+      <ul>
+        <li>Email: gallery@glassworkerart.com</li>
+        <li>Socials: @Glassworkerart</li>
+        <li>Address: 123 Art Lane, Creativity City</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 GlassWorker Art. All rights reserved. Inspired by <a href="https://africanoriginals.com" target="_blank">African Originals</a>.</p>
+  </footer>
+</body>
+</html>
